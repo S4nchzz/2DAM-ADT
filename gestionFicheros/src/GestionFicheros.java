@@ -1,28 +1,82 @@
 import java.io.*;
+import java.util.Random;
 
 public class GestionFicheros {
-    private static String path = "./gestionFicheros/src/";
+    private static String rootPath = "./gestionFicheros/src/";
 
     public static void main(String[] args) {
-        final String folderName = "MyFolder";
-        createFolder(path, folderName);
-        createFolder(path + folderName, "/OtherFolder");
+        final String myFolderName = "MyFolder";
+        createFolder(rootPath, myFolderName);
 
-        changePath(path + folderName);
-        
-        final String fileName = "hola.txt";
-        final String fileRenameName = "adios.txt";
-        createFile(path, fileName);
-        renameFile(new File(path + fileName), fileRenameName);
+        // Create rename and write with no append and append on that file
+        verDir();
+        createFile(rootPath + myFolderName, "/myFile.txt");
 
-        createFile(path + "OtherFolder", "fileInside.txt");
-        
+        final String renamedFile = "/notMyFile.txt";
+        renameFile(new File(rootPath + myFolderName + "/myFile.txt"), renamedFile, rootPath + myFolderName);
+        writeFile(rootPath + myFolderName + renamedFile, "W R I T E R");
+        writeWithFileWriter(rootPath + myFolderName + renamedFile, "   <- Writer", true);
         verDir();
 
-        writeFile(path + fileRenameName, ".m.m.m.m.");
-        System.out.println("Content inside " + fileRenameName + " is = " + readFile(path + fileRenameName));
+        // Read renamed file
+        System.out.println("Content in " + renamedFile + " = " + readFile(new File(rootPath + myFolderName + renamedFile)));
+        
+        //Numbers to 100 on binary
+        createFile(rootPath + myFolderName, "numbersTo100.dat");
+        writeDatFileNTo100(rootPath + myFolderName + "/numbersTo100.dat");
+        System.out.println("Content in numbersTo100.dat file = " + readDatFileNTo100(rootPath + "MyFolder/numbersTo100.dat") + "\n");
 
-        writeWithFileWriter(path + fileRenameName, "hola", true);
+
+        // File with persons
+        final String personsFolder = "/Persons";
+        createFolder(rootPath + myFolderName, personsFolder);
+        File personsFile = createFile(rootPath + myFolderName + personsFolder, "persons.dat");
+        writePersonsWithAge(personsFile);
+        System.out.println(readPersonsWithAge(personsFile));
+
+        // Serialized Obj
+        final String serializedFolder = "/SerializedObjDat";
+        createFolder(rootPath + myFolderName, serializedFolder);
+        File serializedFile = createFile(rootPath + myFolderName + serializedFolder, "objSerialized.dat");
+        serializeObj(new Persona("Iyan", 20), serializedFile);
+
+        System.out.println(readSerializableObj(serializedFile).toString());
+    }
+
+    private static void writeDatFileNTo100(final String path) {
+        FileOutputStream out = null;
+        try {
+            out = new FileOutputStream(new File(path));
+
+            for (int i = 1; i <= 100; i++) {
+                out.write(i);
+            }
+
+        } catch (IOException e) {
+
+        } finally {
+            try {out.close();} catch (IOException e) {}
+        }
+    }
+
+    private static String readDatFileNTo100(final String path) {
+        FileInputStream in = null;
+        StringBuilder sb = new StringBuilder();
+
+        try {
+            in = new FileInputStream(new File(path));
+            sb = new StringBuilder();
+            int i = 0;
+            while ((i = in.read()) != -1) {
+                sb.append(i + ", ");
+            }
+        } catch (IOException ioe) {
+            
+        } finally {
+            try {in.close();} catch (IOException e) {}
+        }
+
+        return sb.toString();
     }
 
     private static void writeFile(final String filePath, final String content) {
@@ -54,11 +108,11 @@ public class GestionFicheros {
         }
     }
 
-    private static String readFile(final String filePath) {
+    private static String readFile(final File file) {
         DataInputStream input = null;
         String content = null;
         try {
-            input = new DataInputStream(new FileInputStream(new File(filePath)));
+            input = new DataInputStream(new FileInputStream(file));
             content = new String(input.readAllBytes());
         } catch (IOException e) {
             System.out.println(e.getMessage());
@@ -78,7 +132,7 @@ public class GestionFicheros {
     }
 
     private static void verDir() {
-        File f = new File(path);
+        File f = new File(rootPath);
 
         File listFiles [] = f.listFiles();
 
@@ -91,23 +145,120 @@ public class GestionFicheros {
         System.out.println("\n");
     }
 
-    private static void createFolder (final String path, final String folderName) {
-        File folder = new File(path + folderName);
+    private static void createFolder (final String path, final String myFolderName) {
+        File folder = new File(path + myFolderName);
         folder.mkdir();
     }
 
-    private static void createFile(final String path, final String fileName) {
+    private static File createFile(final String path, final String fileName) {
         File file = new File(path, fileName);
         try {
             file.createNewFile();
+            return file;
+        } catch (IOException e) {}
+
+        return null;
+    }
+
+    private static void renameFile(final File f, final String newName, final String path) {
+        f.renameTo(new File(path + "/" + newName));
+    }
+
+    private static void writePersonsWithAge(final File file) {
+        DataOutputStream out = null;
+        try {
+            out = new DataOutputStream(new FileOutputStream(file));
+            String[] persons = new String[] {
+                "John",
+                "Jane",
+                "Michael",
+                "Emily",
+                "David",
+                "Olivia",
+                "Daniel",
+                "Sophia",
+                "Matthew",
+                "Isabella",
+                "Andrew",
+                "Mia",
+                "James",
+                "Ava",
+                "William",
+                "Charlotte",
+                "Joseph",
+                "Amelia",
+                "Benjamin",
+                "Ella"
+            };
+
+            int[] ages = new int[20];
+            Random ran = new Random();
+
+            for (int i = 0; i < ages.length; i++) {
+                ages[i] = ran.nextInt(79) + 1;
+            }
+
+            try {
+                for (int i = 0; i < persons.length; i++) {
+                    out.writeUTF(persons[i]);
+                    out.writeInt(ages[i]);
+                }   
+            } catch (IOException ioe) {
+                
+            } finally {
+                try {out.close();} catch (IOException e) {}
+            }
+
+        } catch (FileNotFoundException e) {}
+    }
+
+    private static String readPersonsWithAge(final File file) {
+        DataInputStream in = null;
+        StringBuilder sb = new StringBuilder();
+
+        try {
+            in = new DataInputStream(new FileInputStream(file));
+
+            try {
+                while (true) {
+                    sb.append(in.readUTF() + " ");
+                    sb.append(in.readInt());
+                    sb.append("\n");
+                }
+            } catch (IOException ioe) {
+
+            } finally {
+                try {in.close();} catch (IOException e) {}
+            }
+        } catch (FileNotFoundException e) {
+            
+        }
+
+        return sb.toString();
+    }
+
+    private static void serializeObj(final Object obj, final File file) {
+        ObjectOutputStream out = null;
+
+        try {
+            out = new ObjectOutputStream(new FileOutputStream(file));
+            out.writeObject(obj);
         } catch (IOException e) {}
     }
 
-    private static void renameFile(final File f, final String newName) {
-        f.renameTo(new File(path + newName));
-    }
+    private static Object readSerializableObj(final File file) {
+        ObjectInputStream in = null;
+        Object serializedObj = null;
 
-    private static void changePath (final String newPath) {
-        path = newPath + "/";
+        try {
+            in = new ObjectInputStream(new FileInputStream(file));
+            serializedObj = in.readObject();
+        } catch (IOException | ClassCastException | ClassNotFoundException c) {
+        
+        } finally {
+            try {in.close();} catch (IOException e) {}
+        }
+
+        return serializedObj;
     }
 }
