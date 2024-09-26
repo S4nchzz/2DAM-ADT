@@ -21,6 +21,8 @@ public class GestionFicheros {
 
         writeFile(path + fileRenameName, ".m.m.m.m.");
         System.out.println("Content inside " + fileRenameName + " is = " + readFile(path + fileRenameName));
+
+        writeWithFileWriter(path + fileRenameName, "hola", true);
     }
 
     private static void writeFile(final String filePath, final String content) {
@@ -28,12 +30,26 @@ public class GestionFicheros {
         DataOutputStream data = null;
         try {
             data = new DataOutputStream(new FileOutputStream(file));
-            data.writeChars(content);
+            data.write(content.getBytes());
         } catch (IOException e) {
             System.out.println(e.getMessage());
         } finally {
             try {
                 data.close();
+            } catch (IOException e) {System.out.println(e.getMessage());}
+        }
+    }
+
+    private static void writeWithFileWriter(final String filePath, final String content, final boolean append) {
+        FileWriter writer = null;
+        try {
+            writer = new FileWriter(new File(filePath), append);
+            writer.write(content);
+        } catch (IOException e) {
+            
+        } finally {
+            try {
+                writer.close();
             } catch (IOException e) {System.out.println(e.getMessage());}
         }
     }
