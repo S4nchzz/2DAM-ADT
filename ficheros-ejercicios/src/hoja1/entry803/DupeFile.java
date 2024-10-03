@@ -28,12 +28,16 @@ public class DupeFile {
             FileWriter writer = new FileWriter(fileB);
 
             int value;
+            int nValuesCopied = 0;
             while ((value = reader.read()) != -1) {
                 writer.write(value);
+                nValuesCopied++;
             }
 
+            System.out.println("Se han copiado " + nValuesCopied + " caracteres");
             reader.close();
             writer.close();
+            sc.close();
         } catch (IOException ioe) {
 
         }

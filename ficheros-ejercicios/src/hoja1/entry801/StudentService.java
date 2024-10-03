@@ -1,4 +1,5 @@
 package entry801;
+
 import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -7,7 +8,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class StudentService {
-    private static final String entrada801Path = "./Projects/ficheros-ejercicio1/src/entry801/entrada801.dat";
+    private static final String entrada801Path = "./Projects/ficheros-ejercicios/src/hoja1/entry801/entrada801.dat";
     private static final File entryFile = new File(entrada801Path);
 
     private static final List<Double> list = new ArrayList<>();
