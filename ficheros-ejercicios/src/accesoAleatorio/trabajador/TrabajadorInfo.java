@@ -58,6 +58,7 @@ public class TrabajadorInfo {
             }
 
         } catch (IOException e) {
+
         } finally {
             try {
                 acc.close();
@@ -79,17 +80,17 @@ public class TrabajadorInfo {
 
             acc.seek(pos);
             int readId = acc.readInt();
-                sb.append("ID: " + readId + "\n");
-                sb.append("Apellido: ");
-                for (int k = 0; k < 10; k++) {
-                    sb.append(acc.readChar());
-                }
-                
-                sb.append("\nDepartamento: " + acc.readInt());
-                sb.append("\nSalario: " + acc.readDouble() + "\n\n");
+            sb.append("ID: " + readId + "\n");
+            sb.append("Apellido: ");
+            for (int k = 0; k < 10; k++) {
+                sb.append(acc.readChar());
+            }
+            
+            sb.append("\nDepartamento: " + acc.readInt());
+            sb.append("\nSalario: " + acc.readDouble() + "\n\n");
 
-                acc.close();
-                return sb.toString();
+            acc.close();
+            return sb.toString();
             
         } catch (IOException e) {
             try {
