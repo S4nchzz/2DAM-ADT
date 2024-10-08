@@ -1,4 +1,4 @@
-package accesoAleatorio;
+package accesoAleatorio.enteros;
 
 import java.io.File;
 import java.io.IOException;
