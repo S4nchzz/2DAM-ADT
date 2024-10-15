@@ -9,14 +9,15 @@ import org.xml.sax.helpers.DefaultHandler;
 public class DocumentGestor extends DefaultHandler {
     private final List<EmpleadoLabelData> empleados;
     private EmpleadoLabelData e;
-    private int index = -2;
+    private int index;
     private boolean finalCheck;
 
     public DocumentGestor() {
         super();
         empleados = new ArrayList<>();
-        index = -2;
+        index = -1;
         finalCheck = false;
+        e = new EmpleadoLabelData();
     }
 
     @Override
@@ -33,16 +34,18 @@ public class DocumentGestor extends DefaultHandler {
     public void startElement(String uri, String localName, String qName, Attributes attributes) {
         System.out.println("Start Element: " + qName);
 
-        if (index == -2) {
-            e = new EmpleadoLabelData();
-        } 
-        
         finalCheck = false;
-        if (index == 3) {
-            index = 0;
+
+        if ("empleado".equals(qName)) {
             e = new EmpleadoLabelData();
-        } else {
-            index++;
+        }
+
+        if (!"empleado".equals(qName) && !"Empleados".equals(qName)) {
+            if (index > 2) {
+                index = 0;
+            } else {
+                index++;
+            }
         }
     }
 
@@ -50,7 +53,9 @@ public class DocumentGestor extends DefaultHandler {
     public void endElement(String uri, String localName, String qName) {
         System.out.println("End Element: " + qName);
         finalCheck = true;
-        empleados.add(e);
+        if ((e.getApellido() != null && e.getSalario() > 0 && e.getnEmpleado() > -1) && (!qName.equals("Empleados") && !qName.equals("empleado"))) {
+            empleados.add(e);
+        }
     }
 
     @Override
@@ -58,13 +63,13 @@ public class DocumentGestor extends DefaultHandler {
         if (!finalCheck) {
             System.out.println("Characters: " + new String(ch, start, length));
             switch (index) {
-                case 1:
+                case 0:
                     e.setApellido(new String(ch, start, length));
                     break;
-                case 2:
+                case 1:
                     e.setnEmpleado(Integer.valueOf(new String(ch, start, length)));
                     break;
-                case 3:
+                case 2:
                     e.setSalario(Double.valueOf(new String(ch, start, length)));
                     break;
     

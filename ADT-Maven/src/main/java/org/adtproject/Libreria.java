@@ -11,9 +11,7 @@ public class Libreria {
     private String nombre;
     private String lugar;
 
-    public Libreria() {
-
-    }
+    public Libreria() {}
 
     public Libreria(ArrayList<Libro> listalibros, String nombre, String lugar) {
         this.listalibros = listalibros;
