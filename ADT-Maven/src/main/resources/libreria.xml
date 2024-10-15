@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<libreria>
+    <listalibros>
+        <Libro>
+            <autor>Iyan</autor>
+            <editorial>Iyan S.A</editorial>
+            <isbn>01002</isbn>
+        </Libro>
+    </listalibros>
+</libreria>
