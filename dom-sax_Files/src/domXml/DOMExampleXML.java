@@ -55,7 +55,7 @@ public class DOMExampleXML {
         sc.close();
 
         Source source = new DOMSource(document);
-        Result resultXML = new StreamResult(new File("./src/domXml/empleados.xml"));
+        Result resultXML = new StreamResult(new File("./dom-sax_Files/src/empleados.xml"));
         Result resultSOUT = new StreamResult(System.out);
 
         try {
