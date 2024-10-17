@@ -8,6 +8,8 @@ public class Persona {
     private String dni;
     private String telf;
 
+    public Persona() {}
+
     public Persona(final String nombre, final String dni, final String telf) {
         this.nombre = nombre;
         this.dni = dni;

@@ -6,10 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="a92db138-5a0d-407b-807d-a56ec2b7b489" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/adtproject/ficherosEjXml/ej1/Ej1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/adtproject/ficherosEjXml/ej1/Ej1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/adtproject/ficherosEjXml/ej1/Personas.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/adtproject/ficherosEjXml/Personas.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/adtproject/ficherosEjXml/ej1/fichpersonaObj.dat" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/adtproject/ficherosEjXml/fichpersonaObj.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/adtproject/ficherosEjXml/ej2/Ej2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/adtproject/ficherosEjXml/ej2/Ej2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/adtproject/ficherosEjXml/ej3/Ej3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/adtproject/ficherosEjXml/ej3/Ej3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/adtproject/ficherosEjXml/ej3/Persona.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/adtproject/ficherosEjXml/ej3/Persona.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/adtproject/ficherosEjXml/ej3/PersonasEj3.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,12 +40,13 @@
   "keyToString": {
     "Application.Ej1.executor": "Run",
     "Application.Ej2.executor": "Run",
-    "Application.Ej3.executor": "Debug",
+    "Application.Ej3.executor": "Run",
     "Application.Main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "onboarding.tips.debug.path": "C:/Users/iyann/OneDrive/FP/DAM/2 DAM/Acceso_a_datos/Projects/2DAM-ADT/ADT-Maven/src/main/java/org/adtproject/Main.java"
+    "onboarding.tips.debug.path": "C:/Users/iyann/OneDrive/FP/DAM/2 DAM/Acceso_a_datos/Projects/2DAM-ADT/ADT-Maven/src/main/java/org/adtproject/Main.java",
+    "settings.editor.selected.configurable": "preferences.keymap"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -153,6 +153,7 @@
       <configuration name="Application">
         <watch expression="lib" />
         <watch expression="(e" />
+        <watch expression="new File(xmlUnMarshallFilePath)" />
       </configuration>
     </watches-manager>
   </component>
