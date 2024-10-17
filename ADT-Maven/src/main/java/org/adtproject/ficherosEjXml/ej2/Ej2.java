@@ -23,7 +23,7 @@ public class Ej2 {
             DocumentGestor gestor = new DocumentGestor();
 
             xml.setContentHandler(gestor);
-            InputSource input = new InputSource("./src/main/java/org/adtproject/ficherosEjXml/ej1/Personas.xml");
+            InputSource input = new InputSource("./src/main/java/org/adtproject/ficherosEjXml/Personas.xml");
 
             try {
                 xml.parse(input);

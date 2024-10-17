@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<personas>
+    <personList>
+        <persona>
+            <nombre>Iyan</nombre>
+            <dni>1</dni>
+            <telf>1</telf>
+        </persona>
+        <persona>
+            <nombre>Juan</nombre>
+            <dni>2</dni>
+            <telf>2</telf>
+        </persona>
+        <persona>
+            <nombre>Abril</nombre>
+            <dni>3</dni>
+            <telf>3</telf>
+        </persona>
+    </personList>
+</personas>

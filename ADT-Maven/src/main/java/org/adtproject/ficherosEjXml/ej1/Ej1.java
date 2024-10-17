@@ -18,8 +18,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Ej1 {
-    private static final String datFilePath = "./src/main/java/org/adtproject/ficherosEjXml/ej1/fichpersonaObj.dat";
-    private static final String xmlFilePath = "./src/main/java/org/adtproject/ficherosEjXml/ej1/Personas.xml";
+    private static final String datFilePath = "./src/main/java/org/adtproject/ficherosEjXml/fichpersonaObj.dat";
+    private static final String xmlFilePath = "./src/main/java/org/adtproject/ficherosEjXml/Personas.xml";
 
     public static void main(String[] args) {
         List<Persona> list = new ArrayList<>();
@@ -32,16 +32,16 @@ public class Ej1 {
     }
 
     private static void loadObjIntoDat(List<Persona> personaList) {
+        ObjectOutputStream objout = null;
         try {
-            ObjectOutputStream objout = new ObjectOutputStream(new FileOutputStream(new File((datFilePath))));
+            objout = new ObjectOutputStream(new FileOutputStream(new File((datFilePath))));
 
             for (Persona p : personaList) {
                 objout.writeObject(p);
             }
 
-            objout.close();
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            try {objout.close();} catch (IOException ex) {}
         }
     }
 
