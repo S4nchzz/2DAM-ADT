@@ -1,4 +1,4 @@
-package org.adtproject;
+package org.adtproject.libreria;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
@@ -11,9 +11,7 @@ public class Libreria {
     private String nombre;
     private String lugar;
 
-    public Libreria() {
-
-    }
+    public Libreria() {}
 
     public Libreria(ArrayList<Libro> listalibros, String nombre, String lugar) {
         this.listalibros = listalibros;
