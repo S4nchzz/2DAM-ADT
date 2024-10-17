@@ -57,25 +57,28 @@ public class Ej1 {
 
             Element raiz = doc.getDocumentElement();
             for (Persona per : personDataRead) {
+                Node node = doc.createElement("persona");
+                raiz.appendChild(node);
+
                 Node name = doc.createElement("nombre");
                 name.appendChild(doc.createTextNode(per.getNombre()));
 
-                raiz.appendChild(name);
+                node.appendChild(name);
 
                 Node dni = doc.createElement("dni");
                 dni.appendChild(doc.createTextNode(per.getDni()));
 
-                raiz.appendChild(dni);
+                node.appendChild(dni);
 
                 Node telf = doc.createElement("telf");
                 telf.appendChild(doc.createTextNode(per.getTelf()));
 
-                raiz.appendChild(telf);
+                node.appendChild(telf);
 
                 Node edad = doc.createElement("edad");
                 edad.appendChild(doc.createTextNode(String.valueOf(per.getEdad())));
 
-                raiz.appendChild(edad);
+                node.appendChild(edad);
             }
 
             Source source = new DOMSource(doc);
