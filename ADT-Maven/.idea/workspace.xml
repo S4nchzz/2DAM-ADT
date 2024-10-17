@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a92db138-5a0d-407b-807d-a56ec2b7b489" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/src/main/java/org/adtproject/Libreria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/adtproject/libreria/Libreria.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/adtproject/Libro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/adtproject/libreria/Libro.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/adtproject/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/adtproject/libreria/Main.java" afterDir="false" />
@@ -18,6 +19,9 @@
       <change beforePath="$PROJECT_DIR$/../ADT-Mavenasd/.idea/misc.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../ADT-Mavenasd/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../ADT-Mavenasd/pom.xml" beforeDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/adtproject/Libreria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/adtproject/Libreria.java" afterDir="false" />
+>>>>>>> 19ad5612a7b219abb222e99a64c8f5a36b5abd70
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +49,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Ej1.executor": "Run",
@@ -76,6 +81,17 @@
       </list>
     </recent_temporary>
   </component>
+=======
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/iyann/OneDrive/FP/DAM/2 DAM/Acceso_a_datos/Projects/2DAM-ADT/ADT-Maven/src/main/java/org/adtproject/Main.java&quot;
+  }
+}</component>
+>>>>>>> 19ad5612a7b219abb222e99a64c8f5a36b5abd70
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
