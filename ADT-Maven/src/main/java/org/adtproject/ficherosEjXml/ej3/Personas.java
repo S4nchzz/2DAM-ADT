@@ -10,7 +10,9 @@ import java.util.List;
 public class Personas {
     private List<Persona> personList;
 
-    public Personas() {}
+    public Personas() {
+        personList = new ArrayList<>();
+    }
 
     public Personas(ArrayList<Persona> personList) {
         this.personList = personList;

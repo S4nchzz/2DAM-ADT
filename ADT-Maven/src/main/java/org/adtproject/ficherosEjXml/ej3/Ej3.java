@@ -17,18 +17,19 @@ public class Ej3 {
     private static final String datFilePath = "./src/main/java/org/adtproject/ficherosEjXml/fichpersonaObj.dat";
     private static final String xmlFilePath = "./src/main/java/org/adtproject/ficherosEjXml/ej3/PersonasMarshall.xml";
     public static void main(String[] args) {
-        JAXBContext context = null;
-        try {context = JAXBContext.newInstance(Personas.class);} catch (JAXBException e) {}
-
         ArrayList<org.adtproject.ficherosEjXml.ej3.Persona> personList = refactorDatFileToJAXB(readDatObjFile());
         Personas personas = new Personas(personList);
 
-        marshall(context, personas);
-        unmarshall(context);
+        marshall(personas);
+        for (org.adtproject.ficherosEjXml.ej3.Persona p : unmarshall().getPersonList()) {
+            System.out.println("Nombre: " + p.getNombre() + " | DNI: " + p.getDni() + "| Telf: " + p.getTelf());
+        }
     }
 
-    private static void marshall(JAXBContext context, Personas personas) {
+    private static void marshall(Personas personas) {
+        JAXBContext context = null;
         Marshaller marshaller = null;
+
         try {
             context = JAXBContext.newInstance(Personas.class);
             marshaller = context.createMarshaller();
@@ -39,15 +40,17 @@ public class Ej3 {
         }
     }
 
-    private static void unmarshall(JAXBContext context) {
-        if (context != null) {
-            try {
-                Unmarshaller unmarshaller = context.createUnmarshaller();
-                unmarshaller.unmarshal(new File(xmlFilePath));
-            } catch (JAXBException e) {
-                System.out.println(e.getMessage());
-            }
+    private static Personas unmarshall() {
+        JAXBContext context = null;
+        try {
+            context = JAXBContext.newInstance(Personas.class);
+            Unmarshaller unmarshaller = context.createUnmarshaller();
+            return (Personas) unmarshaller.unmarshal(new File(xmlFilePath));
+        } catch (JAXBException e) {
+            System.out.println(e.getMessage());
         }
+
+        return null;
     }
 
     private static ArrayList<org.adtproject.ficherosEjXml.ej3.Persona> refactorDatFileToJAXB(ArrayList<Persona> personDatList) {
