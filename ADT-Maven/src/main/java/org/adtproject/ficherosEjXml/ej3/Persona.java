@@ -1,8 +1,5 @@
 package org.adtproject.ficherosEjXml.ej3;
 
-import javax.xml.bind.annotation.XmlType;
-
-@XmlType(propOrder = {"nombre", "dni", "telf"})
 public class Persona {
     private String nombre;
     private String dni;

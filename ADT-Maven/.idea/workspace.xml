@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a92db138-5a0d-407b-807d-a56ec2b7b489" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/adtproject/ficherosEjXml/ej3/Ej3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/adtproject/ficherosEjXml/ej3/Ej3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/adtproject/ficherosEjXml/ej3/Personas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/adtproject/ficherosEjXml/ej3/Personas.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,11 +99,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/adtproject/libreria/Main.java</url>
-          <line>21</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/adtproject/ficherosEjXml/ej1/Ej1.java</url>
           <line>92</line>
